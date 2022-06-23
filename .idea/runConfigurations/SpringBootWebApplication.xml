@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SpringBootWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" activateToolWindowBeforeRun="false">
+    <option name="ACTIVE_PROFILES" />
+    <option name="DEBUG_MODE" value="true" />
+    <option name="INCLUDE_PROVIDED_SCOPE" value="false" />
+    <module name="spring-boot-file-upload" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.mkyong.SpringBootWebApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
