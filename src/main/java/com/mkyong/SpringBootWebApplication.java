@@ -1,6 +1,5 @@
 package com.mkyong;
 
-import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
@@ -13,7 +12,6 @@ public class SpringBootWebApplication {
 
     public static void main(String[] args) throws Exception {
         new SpringApplicationBuilder(SpringBootWebApplication.class)
-                .web(WebApplicationType.NONE)
                 .run(args);
 
     }
