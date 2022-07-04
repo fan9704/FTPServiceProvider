@@ -1,6 +1,10 @@
 C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\exception\CustomError.java
+C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\configuration\SwaggerConfiguration.java
 C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\SpringBootWebApplication.java
 C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\controller\IndexController.java
 C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\controller\RestUploadController.java
+C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\util\FtpUtil.java
 C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\model\UploadModel.java
+C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\configuration\FtpConfiguration.java
 C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\exception\RestGlobalExceptionHandler.java
+C:\Users\fan9704\Desktop\spring-boot-file-upload-ajax-rest\src\main\java\com\mkyong\controller\FtpController.java
