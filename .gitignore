@@ -1,3 +1,4 @@
 /target
 /.idea
 /lib
+/src/main/resources/logback.xml

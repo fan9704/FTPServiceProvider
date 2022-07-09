@@ -29,13 +29,13 @@ public class FtpController {
         } else {
             log.info("=======上传文件"+ fileName +"失败=======");
         }
-        return result?"上传成功":"上传失败";
+        return result?"Upload Success":"Upload Failed";
 
     }
 
     @GetMapping("/download")
     public String download(){
-        String fileName = "welcome.txt";
+        String fileName = "download.txt";
         boolean result = FtpUtil.ftpDownload(fileName, ftpConfig.getUrl(),ftpConfig.getPort(),ftpConfig.getUsername(),
                 ftpConfig.getPassword(), ftpConfig.getRemotePath(), ftpConfig.getLocalDir() );
         if (result) {
@@ -43,7 +43,7 @@ public class FtpController {
         } else {
             log.info("=======下载文件"+ fileName +"失败=======");
         }
-        return result?"下载成功":"下载失败";
+        return result?"Download Success":"Download Failed";
     }
 
 

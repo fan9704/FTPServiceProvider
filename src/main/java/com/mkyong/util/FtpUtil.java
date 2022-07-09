@@ -23,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 public class FtpUtil {
     private static FTPClient mFTPClient = new FTPClient();
     private static FtpUtil ftp = new FtpUtil();
-
     public FtpUtil() {
         // 在控制台打印操作过程
         mFTPClient.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
@@ -171,7 +170,13 @@ public class FtpUtil {
         mFTPClient.enterLocalPassiveMode();
         // 以二进制进行传输数据
         mFTPClient.setFileType(FTP.BINARY_FILE_TYPE);
-        FTPFile[] ftpFiles = mFTPClient.listFiles(remotePath);
+        FTPFile[] ftpFiles=null;
+        try{
+            ftpFiles = mFTPClient.listFiles(remotePath);
+        }catch (Exception e){
+            System.err.println(e);
+        }
+
         if (ftpFiles == null || ftpFiles.length == 0) {
             log.info("远程文件不存在");
             return false;
@@ -282,6 +287,8 @@ public class FtpUtil {
         mFTPClient.enterLocalPassiveMode();
         // 以二进制进行传输数据
         mFTPClient.setFileType(FTP.BINARY_FILE_TYPE);
+        //mFTPClient.setFileTransferMode(mFTPClient.BINARY_FILE_TYPE);
+        System.out.println("Local File Path"+localPath);
         File localFile = new File(localPath);
         if (!localFile.exists()) {
             System.err.println("本地文件不存在");
@@ -295,11 +302,12 @@ public class FtpUtil {
                 return false;
             }
         }
-
+        System.out.println("Finish Directory Part");
         // 列出ftp服务器上的文件
         FTPFile[] ftpFiles = mFTPClient.listFiles(remotePath);
         long remoteSize = 0l;
         String remoteFilePath = remotePath + "/" + fileName;
+        System.out.println("Remote File Path"+remoteFilePath);
         if (ftpFiles.length > 0) {
             FTPFile mFtpFile = null;
             for (FTPFile ftpFile : ftpFiles) {
@@ -318,6 +326,7 @@ public class FtpUtil {
                     if (!mFTPClient.deleteFile(remoteFilePath)) {
                         System.err.println("服务端文件操作失败");
                     } else {
+                        System.out.println("Start to Upload File");
                         boolean isUpload = uploadFile(remoteFilePath, localFile, 0);
                         System.err.println("是否上传成功：" + isUpload);
                     }
