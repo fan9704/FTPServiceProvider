@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  backend:
+    image: garbage_classifier
+    #    env_file: ./.env
+    build: .
+    restart: always
+    #    environment:
+    #      SPRING_APPLICATION_JSON: '{
+    #        "spring.datasource.url"  : "jdbc:mysql://mysqldb:$MYSQLDB_DOCKER_PORT/$MYSQLDB_DATABASE?useSSL=false",
+    #        "spring.datasource.username" : "$MYSQLDB_USER",
+    #        "spring.datasource.password" : "$MYSQLDB_ROOT_PASSWORD",
+    #        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+    #        "spring.jpa.hibernate.ddl-auto" : "update"
+    #      }'
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - "ftpd_server"
+  ftpd_server:
+    image: stilliard/pure-ftpd
+#    container_name: pure-ftpd
+    ports:
+      - "1212:21"
+      - "30000-30009:30000-30009"
+    volumes: # remember to replace /folder_on_disk/ with the path to where you want to store the files on the host machine
+      - "/folder_on_disk/data:/home/username/"
+      - "/folder_on_disk/passwd:/etc/pure-ftpd/passwd"
+    environment:
+      PUBLICHOST: "140.125.207.230"
+      FTP_USER_NAME: test
+      FTP_USER_PASS: 123456
+      FTP_USER_HOME: /home/fan
+    restart: always
+
