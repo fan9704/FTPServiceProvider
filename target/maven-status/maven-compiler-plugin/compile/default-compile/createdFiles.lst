@@ -2,3 +2,4 @@ com\mkyong\configuration\FtpConfiguration.class
 com\mkyong\configuration\SwaggerConfiguration.class
 com\mkyong\util\FtpUtil.class
 com\mkyong\controller\FtpController.class
+com\mkyong\configuration\GlobalCorsConfiguration.class
